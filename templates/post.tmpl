@@ -1,0 +1,7 @@
+<h1 class="postedit" id="posttitle" {{if eq .authuser.Id .post.UserId }}contenteditable{{end}}>{{ .post.Title }}</h1>
+<div class="postedit" id="postbody" {{if eq .authuser.Id .post.UserId }}contenteditable{{end}}>{{ .post.Body }}</div>
+<input type="hidden" id="postid" value="{{.post.Id}}" />
+
+<br>
+{{if eq .authuser.Id .post.UserId }}<button type="button" class="delete_post" rel="{{.post.Id}}">Delete Post</button> {{end}}
+

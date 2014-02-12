@@ -1,0 +1,5 @@
+{{range .posts}}
+<h3><a href="/p/{{ .Url }}">{{ .Title }}</a></h3>
+<small>{{.Created | formatTime}}</small>
+<div>{{ .Body }}</div>
+{{end}}

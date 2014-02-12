@@ -1,0 +1,22 @@
+#tophead {margin:10px 0}
+[contenteditable]:hover:after {
+  content: ' click to edit';
+  font-style: italic;
+  font-size: 12px;
+  font-family: sans-serif;
+  color: #ccc;
+  .text-stroke(0);
+}
+
+[contenteditable]:hover, [contenteditable]:focus {
+  background: #FFFFD3;
+}
+
+[contenteditable]:focus {
+  padding: 5px;
+}
+
+[contenteditable]:focus:after {
+  content: '';
+}
+

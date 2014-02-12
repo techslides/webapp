@@ -1,0 +1,7 @@
+<h2>Users</h2>
+
+<ul>
+{{range .users}}
+  <li><a href="users/{{ .Id }}">{{ .Name }} Profile and Posts</a></li>
+{{end}}
+</ul>

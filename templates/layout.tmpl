@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>{{.metatitle}}</title>
+
+    <!-- Add custom CSS here -->
+    <link href="/css/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+<nav><a href="/">Home</a> | <a href="/users">Users</a></nav>
+
+<div id="tophead">
+<!--This should be an include outside of layout as its not needed in pages like login...-->
+{{if .authuser.Name}}
+    Hello {{.authuser.Name}} | <a href="/logout">Logout</a>
+{{else}}
+    Please <a href="/login">Login</a> or <a href="/register">Register</a>
+{{end}}
+</div>
+
+<div id="errors"></div> 
+
+    {{yield}}
+  
+    <!-- JavaScript -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/js/main.js"></script>
+
+  </body>
+</html>

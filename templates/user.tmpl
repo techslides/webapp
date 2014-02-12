@@ -1,0 +1,24 @@
+<h2>Posts by <span class="useredit" id="username" {{if eq .authuser.Id .user.Id }}contenteditable{{end}}>{{.user.Name}}<span></h2>
+<label>Email:</label> <span class="useredit" id="useremail" {{if eq .authuser.Id .user.Id }}contenteditable{{end}}>{{.user.Email}}</span><br>
+<label>Password</label> <span class="useredit" id="userpassword" {{if eq .authuser.Id .user.Id }}contenteditable{{end}}>{{.user.Password}}</span><br>
+<input type="hidden" id="userid" value="{{.user.Id}}" />
+
+<br>
+{{if eq .authuser.Id .user.Id }}<button type="button" class="delete_user" rel="{{.user.Id}}">Delete My Account</button>{{end}}
+<br>
+
+
+<ul>
+{{range .posts}}
+<li><a href="/posts/{{ .Id }}">{{ .Title }}</a></li>
+{{end}}
+</ul>
+
+{{if eq .authuser.Id .user.Id }}
+    <h2>Create a Post</h2>
+    <form action="/posts" method="POST">
+      <input type="text" name="Title" placeholder="Title" /><br>
+      <textarea name="Body"></textarea><br>
+      <input type="submit" value="submit"/>
+    </form>
+{{end}}
