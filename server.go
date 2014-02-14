@@ -504,7 +504,7 @@ func main() {
           if(authuser.UniqueId() == post.UserId){
 
             //delete it
-            count, err := dbmap.Delete(&post)
+            _, err := dbmap.Delete(&post)
             checkErr(err, "Delete failed")
 
             newmap := map[string]interface{}{"responseText":"success"}
